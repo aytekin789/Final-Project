@@ -1,0 +1,50 @@
+header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #a01111; 
+    padding: 10px 20px; 
+  }
+  
+  .logo {
+    font-family: 'Montserrat', sans-serif; 
+    color: white; 
+    font-size: 24px; 
+    text-decoration: none;
+  }
+  
+  .search-container {
+    display: flex; 
+    align-items: center; 
+  }
+  
+  input {
+    padding: 8px; 
+    border: none; 
+    border-radius: 5px; 
+    margin-right: 10px; 
+  }
+  
+  button {
+    padding: 8px 12px; 
+    background-color: white;
+    color: #a01111; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+  }
+  
+  button:hover {
+    background-color: black; 
+  }
+  
+  img {
+    width: 24px;
+    height: 24px; 
+    margin-left: 15px; 
+  }
+  
+  
+  
+  
+  
