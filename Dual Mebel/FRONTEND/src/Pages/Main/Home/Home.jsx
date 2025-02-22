@@ -6,7 +6,30 @@ const Home = () => {
   return (
 <>
 <Helmet><title>HOME</title></Helmet>
-<div>Home</div>
+<div id="carouselExample" className="carousel slide">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img src="/Image/first.webp"  className="d-block w-100" alt="First slide" />
+            <p>Dual Mebelin hər parcası zövq hər detalı keyfiyyətdi!</p>
+          </div>
+          <div className="carousel-item">
+            <img src="/Image/second.jpg" className="d-block w-100" alt="Second slide" />
+            <p>Dual Mebelin hər parcası zövq hər detalı keyfiyyətdi!</p>
+          </div>
+          <div className="carousel-item">
+            <img src="/Image/three.avif" className="d-block w-100" alt="Third slide" />
+            <p>Dual Mebelin hər parcası zövq hər detalı keyfiyyətdi!</p>
+          </div>
+        </div>
+        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
+        </button>
+      </div>
 </>
     
   )

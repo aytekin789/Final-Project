@@ -7,7 +7,7 @@ const MainNavbar = () => {
     <>
     <div className='header'>
     <div className="logo">
-        <Link to="/"><h1>Dual Mebel</h1></Link>
+        <Link ><h1>Dual Mebel</h1></Link>
       </div>
       <div className="navbar">
       <nav >
