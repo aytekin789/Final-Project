@@ -11,6 +11,7 @@ import AdminProduct from "./Pages/Admin/AdminProduct/AdminProduct";
 import Add from "./Pages/Admin/Add/Add";
 import { HelmetProvider } from "react-helmet-async";
 import NoPage from "./Pages/NoPage";
+import About from "./Pages/Main/About/About";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="basket" element={<Basket />} />
           <Route path="wishlist" element={<Wishlist />} />
           <Route path=":id" element={<Detail />} />
+          <Route path="about" element={<About/>}/>
           {/* <Route path="*" element={<NoPage/>} /> */}
         </Route>
 
