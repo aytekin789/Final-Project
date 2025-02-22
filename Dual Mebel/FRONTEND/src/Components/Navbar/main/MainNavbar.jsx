@@ -12,9 +12,10 @@ const MainNavbar = () => {
       <div className="navbar">
       <nav >
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/products">Products</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/">Ana Səhifə</Link></li>
+          <li><Link to="/products">Məhsullar</Link></li>
+          <li><Link to="/contact">Əlaqə</Link></li>
+          <li><Link to="/about">Haqqımızda</Link></li>
         </ul>
       </nav>
       </div>
