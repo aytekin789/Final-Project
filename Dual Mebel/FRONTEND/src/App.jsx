@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios'
 export default function App() {
   const [data, setData] = useState([])
-
+  const [basket, setBasket] = useState(localStorage.getItem("basket") ? JSON.parse(localStorage.getItem("basket")) : [])
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products").then(res => {
       console.log(res.data)
@@ -25,8 +25,72 @@ export default function App() {
     })
   }, [])
 
-  const datas={
-    data
+  function AddToBasket(product) {
+    const target = basket.find((item) => item.product.id == product.id)
+    if (target) {
+      target.count += 1,
+        target.totalPrice = target.product.price * target.count
+      setBasket([...basket])
+      localStorage.setItem("basket", JSON.stringify([...basket]))
+
+    }
+    else {
+      const newBasketItem = {
+        count: 1,
+        totalPrice: product.price,
+        id: product.id,
+        product: product
+      }
+      setBasket([...basket, newBasketItem])
+      localStorage.setItem("basket", JSON.stringify([...basket, newBasketItem]))
+      toast.success("added to basket")
+
+    }
+  }
+
+
+  const decrease = (product) => {
+    const target = basket.find(item => item.id == product.id)
+    if (target.count > 1) {
+      target.count -= 1
+      target.totalPrice = target.product.price * target.count
+      setBasket([...basket])
+      localStorage.setItem("basket", JSON.stringify([...basket]))
+    }
+  }
+
+
+
+
+  function increase(product) {
+    const target = basket.find((item) => item.id == product.id)
+    console.log(target.product.id)
+    target.count += 1
+    target.totalPrice = target.product.price * target.count
+    setBasket([...basket])
+    localStorage.setItem("basket", JSON.stringify([...basket]))
+
+  }
+
+  const removeFromBasket = (product) => {
+    const target = basket.find(item => item.id == product.id)
+    basket.splice(basket.indexOf(target), 1)
+    setBasket([...basket])
+    localStorage.setItem("basket", JSON.stringify([...basket]))
+  }
+
+
+
+
+
+  const datas = {
+    data,
+    AddToBasket,
+    basket,
+    decrease,
+    increase,
+    removeFromBasket
+
   }
   return (
     <HelmetProvider>
@@ -49,7 +113,7 @@ export default function App() {
             <Route path="/admin" element={<Admin />}>
               <Route index element={<AdminProduct />} />
               <Route path="add" element={<Add />} />
-              
+
 
             </Route>
           </Routes>

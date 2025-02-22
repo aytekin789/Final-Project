@@ -5,7 +5,7 @@ import Maincontext from '../../../context/mainContext'
 
 const Home = () => {
 
-  const {data}=useContext(Maincontext)
+  const {data , AddToBasket}=useContext(Maincontext)
   console.log("first", data)
   return (
 <>
@@ -47,6 +47,9 @@ const Home = () => {
           return(
             <li>
               {item.title}
+              <button onClick={()=>{
+                AddToBasket(item)
+              }}>basket</button>
             </li>
           )
         })}
