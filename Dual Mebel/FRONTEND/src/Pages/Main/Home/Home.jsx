@@ -5,7 +5,7 @@ import Maincontext from '../../../context/mainContext'
 
 const Home = () => {
 
-  const {data , AddToBasket}=useContext(Maincontext)
+  const {data , AddToBasket,addtoWishList}=useContext(Maincontext)
   console.log("first", data)
   return (
 <>
@@ -50,6 +50,9 @@ const Home = () => {
               <button onClick={()=>{
                 AddToBasket(item)
               }}>basket</button>
+              <button onClick={()=>{
+                addtoWishList(item)
+              }}>fav</button>
             </li>
           )
         })}

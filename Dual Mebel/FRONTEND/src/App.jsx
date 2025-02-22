@@ -17,6 +17,8 @@ import { useEffect, useState } from "react";
 import axios from 'axios'
 export default function App() {
   const [data, setData] = useState([])
+  const [wishList, setWishList] = useState(localStorage.getItem("wish") ? JSON.parse(localStorage.getItem("wish")) : [])
+
   const [basket, setBasket] = useState(localStorage.getItem("basket") ? JSON.parse(localStorage.getItem("basket")) : [])
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products").then(res => {
@@ -80,6 +82,29 @@ export default function App() {
     localStorage.setItem("basket", JSON.stringify([...basket]))
   }
 
+  const addtoWishList = (product) => {
+    const target = wishList.find(item => item.id == product.id)
+    if (target) {
+      alert("wishListinizde Movcuddur")
+    }
+    else {
+      setWishList([...wishList, product])
+      localStorage.setItem("wish", JSON.stringify([...wishList, product]))
+      alert("added to wishList")
+    }
+
+  }
+
+
+  const removeFromWishList = (product) => {
+    const target = wishList.find(item => item.id == product.id)
+    wishList.splice(wishList.indexOf(target), 1)
+    setWishList([...wishList])
+    localStorage.setItem("wish", JSON.stringify([...wishList]))
+    alert("deleted data")
+
+  }
+
 
 
 
@@ -90,7 +115,10 @@ export default function App() {
     basket,
     decrease,
     increase,
-    removeFromBasket
+    removeFromBasket,
+    addtoWishList,
+    wishList,
+    removeFromWishList
 
   }
   return (
@@ -114,7 +142,7 @@ export default function App() {
             <Route path="/admin" element={<Admin />}>
               <Route index element={<AdminProduct />} />
               <Route path="add" element={<Add />} />
-              <Route path="edit/:id" element={<Edit/>}/>
+              <Route path="edit/:id" element={<Edit />} />
 
             </Route>
           </Routes>
