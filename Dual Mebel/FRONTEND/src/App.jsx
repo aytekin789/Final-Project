@@ -23,8 +23,8 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="basket" element={<Basket />} />
           <Route path="wishlist" element={<Wishlist />} />
-          <Route path="detail/:id" element={<Detail />} />
-          <Route path="*" element={<NoPage/>} />
+          <Route path=":id" element={<Detail />} />
+          {/* <Route path="*" element={<NoPage/>} /> */}
         </Route>
 
 

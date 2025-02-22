@@ -25,7 +25,7 @@ const Products = () => {
                   <h2>{x.title}</h2>
                   <p>{x.description}</p>
                 </div>
-                <Link to={`detail/${x.id}`}>
+                <Link to={`/${x.id}`}>
                   <button style={{ backgroundColor: "#a01111" }}>Detail</button>
                 </Link>
               </div>
