@@ -49,6 +49,7 @@ export default function App() {
             <Route path="/admin" element={<Admin />}>
               <Route index element={<AdminProduct />} />
               <Route path="add" element={<Add />} />
+              
 
             </Route>
           </Routes>
