@@ -113,7 +113,7 @@ export default function App() {
             <Route path="/admin" element={<Admin />}>
               <Route index element={<AdminProduct />} />
               <Route path="add" element={<Add />} />
-
+              <Route path="edit/:id" element={<Edit/>}/>
 
             </Route>
           </Routes>
