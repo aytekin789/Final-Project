@@ -10,6 +10,7 @@ import Admin from "./Layout/Admin";
 import AdminProduct from "./Pages/Admin/AdminProduct/AdminProduct";
 import Add from "./Pages/Admin/Add/Add";
 import { HelmetProvider } from "react-helmet-async";
+import NoPage from "./Pages/NoPage";
 
 export default function App() {
   return (
@@ -22,8 +23,8 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="basket" element={<Basket />} />
           <Route path="wishlist" element={<Wishlist />} />
-          <Route path="detail" element={<Detail />} />
-          <Route path="*" element={<h1>Not Found 404</h1>} />
+          <Route path="detail/:id" element={<Detail />} />
+          <Route path="*" element={<NoPage/>} />
         </Route>
 
 
