@@ -18,6 +18,9 @@
     color: white;
     text-decoration: none;
   }
+  .logo a h1 {
+    color: white;
+  }
   
   .navbar nav ul {
     display: flex;

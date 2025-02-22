@@ -14,15 +14,21 @@ const Home = () => {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img src="/Image/first.webp"  className="d-block w-100" alt="First slide" />
-            <p>Dual Mebelin hər parcası zövq hər detalı keyfiyyətdi!</p>
+            <div className="carousel-caption d-none d-md-block">
+    <p>Dual Mebelin hər parçası zövq, hər detalı keyfiyyətdi!</p>
+  </div>
           </div>
           <div className="carousel-item">
             <img src="/Image/second.jpg" className="d-block w-100" alt="Second slide" />
-            <p>Dual Mebelin hər parcası zövq hər detalı keyfiyyətdi!</p>
+            <div className="carousel-caption d-none d-md-block">
+    <p>Rahatlıq və dəbli dizayn – Dual Mebel ilə evinizdə!</p>
+  </div>
           </div>
           <div className="carousel-item">
             <img src="/Image/three.avif" className="d-block w-100" alt="Third slide" />
-            <p>Dual Mebelin hər parcası zövq hər detalı keyfiyyətdi!</p>
+            <div className="carousel-caption d-none d-md-block">
+    <p>Evinizin hər guşəsində incəlik və keyfiyyət!</p>
+  </div>
           </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
