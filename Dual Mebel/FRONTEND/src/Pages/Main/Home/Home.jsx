@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 import "./Home.css"
+import Maincontext from '../../../context/mainContext'
 
 const Home = () => {
+
+  const {data}=useContext(Maincontext)
+  console.log("first", data)
   return (
 <>
 <Helmet><title>HOME</title></Helmet>
@@ -29,6 +33,17 @@ const Home = () => {
           <span className="carousel-control-next-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Next</span>
         </button>
+      </div>
+
+
+      <div className="cards__all">
+        {data.map((item,index)=>{
+          return(
+            <li>
+              {item.title}
+            </li>
+          )
+        })}
       </div>
 </>
     

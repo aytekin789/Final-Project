@@ -11,30 +11,49 @@ import AdminProduct from "./Pages/Admin/AdminProduct/AdminProduct";
 import Add from "./Pages/Admin/Add/Add";
 import { HelmetProvider } from "react-helmet-async";
 import NoPage from "./Pages/NoPage";
-
+import Maincontext from "./context/mainContext";
+import { useEffect, useState } from "react";
+import axios from 'axios'
 export default function App() {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    axios.get("https://fakestoreapi.com/products").then(res => {
+      console.log(res.data)
+      setData(res.data)
+
+    })
+  }, [])
+
+  const datas={
+    data
+  }
   return (
     <HelmetProvider>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="products" element={<Products />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="basket" element={<Basket />} />
-          <Route path="wishlist" element={<Wishlist />} />
-          <Route path=":id" element={<Detail />} />
-          {/* <Route path="*" element={<NoPage/>} /> */}
-        </Route>
+      <Maincontext.Provider value={datas}>
 
 
-        <Route path="/admin" element={<Admin />}>
-            <Route index element={<AdminProduct />} />
-            <Route path="add" element={<Add />} />
-           
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Home />} />
+              <Route path="products" element={<Products />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="basket" element={<Basket />} />
+              <Route path="wishlist" element={<Wishlist />} />
+              <Route path=":id" element={<Detail />} />
+              {/* <Route path="*" element={<NoPage/>} /> */}
+            </Route>
+
+
+            <Route path="/admin" element={<Admin />}>
+              <Route index element={<AdminProduct />} />
+              <Route path="add" element={<Add />} />
+
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Maincontext.Provider>
     </HelmetProvider>
   );
 }
