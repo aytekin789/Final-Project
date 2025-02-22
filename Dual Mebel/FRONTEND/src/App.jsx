@@ -12,6 +12,7 @@ import Add from "./Pages/Admin/Add/Add";
 import { HelmetProvider } from "react-helmet-async";
 import NoPage from "./Pages/NoPage";
 import Maincontext from "./context/mainContext";
+import Edit from './Pages/Admin/Edit/Edit'
 import { useEffect, useState } from "react";
 import axios from 'axios'
 export default function App() {
